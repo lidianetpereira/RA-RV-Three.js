@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercicio 4</title>
+    <link rel="shortcut icon" href="">
+    <script src="libs/three.js"></script>
+    <script>
+        var renderer;
+        var camera;
+        var scene;
+
+        var cube;
+
+        function init() {
+            scene = new THREE.Scene();
+            renderer = new THREE.WebGLRenderer();
+            renderer.setClearColor(0x000000, 1.0);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.shadowMapEnabled = true;
+
+            //Params: (vertical field of view, aspect ratio, near plane, far plane)
+            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.set(15, 16, 13);
+            camera.lookAt(scene.position);
+
+            DrawElements();
+            DrawLight();
+
+            document.body.appendChild(renderer.domElement);
+
+            this.render();
+        }
+
+        function render(){
+            renderer.render(scene, camera);
+            
+            cube.rotation.y += 0.05;
+
+            //Criação do loop de renderização otimizado pelo navegador
+            requestAnimationFrame(render);
+        }
+
+        function DrawLight() {
+            var light = new THREE.SpotLight(0xffffff);
+            light.position.set(0, 20, 15);
+            light.shadowCameraNear = 20;
+            light.shadowCameraFar = 50;
+
+            light.castShadow = true;
+
+            scene.add(light);
+        }
+
+        function DrawElements(){
+            var planeGeometry = new THREE.PlaneGeometry(20, 20);
+            var planeMaterial = new THREE.MeshLambertMaterial({color: 0xcccccc});
+            var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+
+            plane.receiveShadow = true;
+
+            plane.rotation.x = -0.5 * Math.PI;
+            plane.position.set(0, -2, 0);
+
+            scene.add(plane);
+
+            var cubeGeometry = new THREE.BoxGeometry(4, 4, 4);
+            var cubeMaterial = new THREE.MeshLambertMaterial({color: "#BA55D3"});
+            cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+            cube.castShadow = true;
+            scene.add(cube);
+        }
+
+        //Browser chama a init() assim que o documento carrega
+        window.onload = init;
+    </script>
+</head>
+<body>
+
+</body>
+</html>
