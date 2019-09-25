@@ -70,17 +70,17 @@
             scene.add(cube);
 
             var sphereGeometry = new THREE.SphereGeometry(2, 24, 24);
-            sphere = new THREE.Mesh(sphereGeometry, lambertMaterial);
+            var sphere = new THREE.Mesh(sphereGeometry, lambertMaterial);
             sphere.position.set(10, 0, 10);
             scene.add(sphere);
 
             var cylinderGeometry = new THREE.CylinderGeometry(2, 2, 4, 24);
-            cylinder = new THREE.Mesh(cylinderGeometry, lambertMaterial);
+            var cylinder = new THREE.Mesh(cylinderGeometry, lambertMaterial);
             cylinder.position.set(10, 0, -10);
             scene.add(cylinder);
 
             var torusGeometry = new THREE.TorusGeometry(3.0, 1, 20, 24);
-            torus = new THREE.Mesh(torusGeometry, lambertMaterial);
+            var torus = new THREE.Mesh(torusGeometry, lambertMaterial);
             torus.rotation.x = -0.5 * Math.PI;
             torus.position.set(-10, 0, -10);
             scene.add(torus);
