@@ -2,56 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Exercicio 6</title>
+    <title>Exercicio 9</title>
     <link rel="shortcut icon" href="">
+
     <script src="three.min.js"></script>
     <script>
         var renderer;
-        var camera;
         var scene;
-
-        var cube;
+        var camera;
 
         var Speed = 0.1;
+        var lightSphere;
+        var light;
 
         function init() {
             scene = new THREE.Scene();
+
             renderer = new THREE.WebGLRenderer();
             renderer.setClearColor(0x000000, 1.0);
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.shadowMapEnabled = true;
+            //renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-            //Params: (vertical field of view, aspect ratio, near plane, far plane)
             camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.set(35, 25, 15);
+            camera.position.x = 20;
+            camera.position.y = 25;
+            camera.position.z = 10;
             camera.lookAt(scene.position);
 
-            DrawElements();
-            DrawLight();
+            this.DrawElements();
+            this.DrawLight();
 
             document.body.appendChild(renderer.domElement);
 
             document.addEventListener("keydown", onDocumentKeyDown, false);
 
-            this.render();
+            render();
         }
 
-        function render(){
+        function render() {
             renderer.render(scene, camera);
-
-            //Criação do loop de renderização otimizado pelo navegador
             requestAnimationFrame(render);
-        }
-
-        function DrawLight() {
-            var light = new THREE.SpotLight(0xffffff);
-            light.position.set(10, 20, 20);
-            light.shadowCameraNear = 20;
-            light.shadowCameraFar = 50;
-
-            light.castShadow = true;
-
-            scene.add(light);
         }
 
         function DrawElements(){
@@ -66,11 +57,32 @@
 
             scene.add(plane);
 
-            var cubeGeometry = new THREE.BoxGeometry(4, 4, 4);
-            var cubeMaterial = new THREE.MeshLambertMaterial({color: "#BA55D3"});
-            cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-            cube.castShadow = true;
-            scene.add(cube);
+            var phongtMaterial = new THREE.MeshStandardMaterial({color: "#BA55D3"});
+
+            var sphereGeometry = new THREE.SphereGeometry(2, 24, 24);
+            var lightGeometry = new THREE.SphereGeometry(0.5);
+
+            var sphere1 = new THREE.Mesh(sphereGeometry, phongtMaterial);
+            sphere1.position.set(4, 0, 2);
+            sphere1.castShadow = true;
+            scene.add(sphere1);
+
+            var sphere2 = new THREE.Mesh(sphereGeometry, phongtMaterial);
+            sphere2.position.set(-6, 0, 2);
+            sphere2.castShadow = true;
+            scene.add(sphere2);
+
+            lightSphere = new THREE.Mesh(lightGeometry, phongtMaterial);
+            lightSphere.position.set(0, 8, 0);
+
+            scene.add(lightSphere);
+        }
+
+        function DrawLight() {
+            light = new THREE.PointLight(0xb4e7f2);
+            light.position.set(0, 8, 0);
+            light.castShadow = true;
+            scene.add(light);
         }
 
         function onDocumentKeyDown(event){
@@ -78,24 +90,27 @@
             switch (keyCode) {
                 //up
                 case 38:
-                    cube.position.x -= Speed;
+                    lightSphere.position.x -= Speed;
+                    light.position.x -= Speed;
                     break;
                 //down
                 case 40:
-                    cube.position.x += Speed;
+                    lightSphere.position.x += Speed;
+                    light.position.x += Speed;
                     break;
                 //right
                 case 39:
-                    cube.position.z -= Speed;
+                    lightSphere.position.z -= Speed;
+                    light.position.z -= Speed;
                     break;
                 //left
                 case 37:
-                    cube.position.z += Speed;
+                    lightSphere.position.z += Speed;
+                    light.position.z += Speed;
                     break;
             }
         }
 
-        //Browser chama a init() assim que o documento carrega
         window.onload = init;
     </script>
 </head>

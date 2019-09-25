@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Exercicio 2</title>
+    <title>Exercicio 3</title>
     <link rel="shortcut icon" href="">
 
-    <script src="three.min.js"></script>
+    <script src="libs/three.js"></script>
+    <script src="libs/TrackballControls.js"></script>
     <script>
         var renderer;
         var camera;
         var scene;
+        var controls;
 
         function init() {
             scene = new THREE.Scene();
@@ -23,6 +25,8 @@
             camera.position.set(15, 16, 13);
             camera.lookAt(scene.position);
 
+            controls = new THREE.TrackballControls( camera );
+
             DrawElements();
             DrawLight();
 
@@ -33,13 +37,16 @@
 
         function render(){
             renderer.render(scene, camera);
+
+            controls.update();
+
             //Criação do loop de renderização otimizado pelo navegador
             requestAnimationFrame(render);
         }
 
         function DrawLight() {
             var light = new THREE.SpotLight(0xffffff);
-            light.position.set(5, 20, 15);
+            light.position.set(0, 20, 15);
             light.shadowCameraNear = 20;
             light.shadowCameraFar = 50;
 
