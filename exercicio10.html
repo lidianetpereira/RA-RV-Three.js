@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Exercicio 3</title>
+    <title>Exercicio 10</title>
     <link rel="shortcut icon" href="">
 
-    <script src="libs/three.js"></script>
-    <script src="libs/TrackballControls.js"></script>
+    <script src="three.min.js"></script>
+    <script src="OrbitControls.js"></script>
     <script>
         var renderer;
         var camera;
@@ -18,20 +18,19 @@
             renderer = new THREE.WebGLRenderer();
             renderer.setClearColor(0x000000, 1.0);
             renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.shadowMapEnabled = true;
+            renderer.shadowMap.enabled = true;
 
             //Params: (vertical field of view, aspect ratio, near plane, far plane)
             camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
             camera.position.set(15, 16, 13);
             camera.lookAt(scene.position);
 
-            controls = new THREE.TrackballControls( camera );
-
             DrawElements();
             DrawLight();
 
             document.body.appendChild(renderer.domElement);
 
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
             this.render();
         }
 
@@ -46,9 +45,7 @@
 
         function DrawLight() {
             var light = new THREE.SpotLight(0xffffff);
-            light.position.set(0, 20, 15);
-            light.shadowCameraNear = 20;
-            light.shadowCameraFar = 50;
+            light.position.set(10, 20, 15);
 
             light.castShadow = true;
 
@@ -67,9 +64,11 @@
 
             scene.add(plane);
 
+            var texture = new THREE.TextureLoader().load( 'wood.jpg' );
+            var material = new THREE.MeshPhongMaterial( { map: texture } );
+
             var cubeGeometry = new THREE.BoxGeometry(4, 4, 4);
-            var cubeMaterial = new THREE.MeshLambertMaterial({color: "#BA55D3"});
-            var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+            var cube = new THREE.Mesh(cubeGeometry, material);
             cube.castShadow = true;
             scene.add(cube);
         }

@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d5e681d-a661-4a1e-bb01-0cf1d1541d03" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/OrbitControls.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercicio10.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercicio8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercicio9.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercicio1.html" beforeDir="false" afterPath="$PROJECT_DIR$/exercicio1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercicio2.html" beforeDir="false" afterPath="$PROJECT_DIR$/exercicio2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercicio3.html" beforeDir="false" afterPath="$PROJECT_DIR$/exercicio3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercicio4.html" beforeDir="false" afterPath="$PROJECT_DIR$/exercicio4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercicio5.html" beforeDir="false" afterPath="$PROJECT_DIR$/exercicio5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercicio6.html" beforeDir="false" afterPath="$PROJECT_DIR$/exercicio6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercicio7.html" beforeDir="false" afterPath="$PROJECT_DIR$/exercicio7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercicio10.html" beforeDir="false" afterPath="$PROJECT_DIR$/exercicio10.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +72,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
