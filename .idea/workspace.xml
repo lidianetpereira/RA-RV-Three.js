@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d5e681d-a661-4a1e-bb01-0cf1d1541d03" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/DDSLoader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MTLLoader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OBJLoader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exercicio11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/RA-RV-Three.js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RA-RV-Three.js.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercicio10.html" beforeDir="false" afterPath="$PROJECT_DIR$/exercicio10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +40,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="10.16.3" />
     <property name="last_opened_file_path" value="C:/Program Files/nodejs" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
@@ -61,6 +68,7 @@
       <option name="presentableId" value="Default" />
       <updated>1569432137250</updated>
       <workItem from="1569432142471" duration="19407000" />
+      <workItem from="1569462552062" duration="4047000" />
     </task>
     <servers />
   </component>
