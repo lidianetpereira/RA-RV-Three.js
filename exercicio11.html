@@ -96,6 +96,9 @@
                         .load( 'WaltHead.obj', function ( object ) {
                             object.position.set(5, -2, 3);
                             object.scale.set(0.1, 0.1, 0.1);
+                            object.traverse(function(child){
+                                child.castShadow = true;
+                            });
                             scene.add( object );
                         }, onProgress, onError );
                 } );
